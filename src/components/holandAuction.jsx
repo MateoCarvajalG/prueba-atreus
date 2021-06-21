@@ -3,33 +3,32 @@ import React, { useState, useEffect } from "react";
 import { getAuctions, addAuction } from "../utils/request";
 
 const HolandAuction = () => {
-  const [data, setData] = useState([]);
-  const auction_id = "5cc18be54d4d412bb9e0209b9d6aa4f0";
+  const auction_id = "76dec0a274db4374a641e6ea4380fb22";
   const request = {
-    "datos": {
-      "title": "carcasas para premios estatales",
-      "valor": {
-        "cantidad": 500
+    "data": {
+      "title": "casings for state awards",
+      "value": {
+        "amount": 500
       },
       "minimalStep": {
-        "cantidad": 35
+        "amount": 35
       },
-      "artículos": [
+      "items": [
         {
-          "description": "carcasas para premios estatales",
-          "cantidad": 5
+          "description": "casings for state awards",
+          "quantity": 5
         }
       ],
-      "tenderPeriod": {},
-      "provisionMethodType": "información privilegiada"
+      "tenderPeriod": {}
     }
   }
   useEffect(() => {
     getAuctions(auction_id).then((response) => {
-      setData(response);
+      // setData(response.data.data);
+      console.log('getAuction',response);
     });
     addAuction(request, auction_id).then((response) => {
-      console.log(response);
+      console.log('addingAuction: ',response);
     });
   }, []);
   return (

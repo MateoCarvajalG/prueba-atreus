@@ -35,7 +35,6 @@ const EnglishAuction = () => {
   return (
     <div>
       <h2>English Auction</h2>
-      {data.auctionID}
     </div>
   );
 };

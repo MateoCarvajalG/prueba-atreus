@@ -8,7 +8,7 @@ const instanceGet = axios.create({
   baseURL: "https://api.atreus.auction/api/2.4/auctions/",
 });
 const instancePost = axios.create({
-  baseURL: "api.atreus.auction/api/2.4/auctions/",
+  baseURL: "https://api.atreus.auction/api/2.4/auctions/",
 });
 
 
@@ -18,8 +18,7 @@ export const getAuctions = async (auction_id) => {
     const data = await instanceGet.get(`${auction_id}?acc_token=${KEY}`);
     return data;
   } catch (error) {
-    if (error) {
-    }
+    console.log('Error getting auction');
   }
 };
 
@@ -27,11 +26,10 @@ export const addAuction = async (request,auction_id)=> {
   
   try {
      const data = await instancePost.post(
-      `${auction_id}`, request
+      `${auction_id}?acc_token=${KEY}`, request
      );
      return data;
   } catch (error) {
-     if (error) {
-     }
+     console.log('Error adding auction: ', error);
   }
 }
