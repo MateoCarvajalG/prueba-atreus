@@ -8,8 +8,10 @@ const instance = axios.create({
   baseURL: "https://api.atreus.auction/api/2.4/auctions/",
 });
 
+
 export const getAuctions = async (auction_id) => {
   try {
+    
     const data = await instance.get(`${auction_id}?acc_token=${KEY}`);
     return data;
   } catch (error) {
@@ -17,3 +19,16 @@ export const getAuctions = async (auction_id) => {
     }
   }
 };
+
+export const addAuction = async (request,auction_id)=> {
+  
+  try {
+     const data = await instance.post(
+      `${auction_id}`, request
+     );
+     return data;
+  } catch (error) {
+     if (error) {
+     }
+  }
+}
