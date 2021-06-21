@@ -1,23 +1,26 @@
-import React, {useEffect} from 'react'
-import { getAuction } from '../utils/request';
+import React, { useState, useEffect } from 'react'
 
 
-const holandAuction = () => {
+import { getAuctions } from '../utils/request';
+
+
+const HolandAuction = () => {
   const [data, setData] = useState([])
   useEffect(() => {
-    getAuction()
+    getAuctions()
     .then((data) => {
-      setData(data.data);
-      console.log(data.data);
+      setData(data);
+      console.log(data);
     })
     
   }, [])
   return (
     <div>
-      
+      {/* <h2>este es holand auction</h2>
+      {data} */}
     </div>
   )
 }
 
-export default holandAuction
+export default HolandAuction
 

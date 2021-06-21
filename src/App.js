@@ -1,13 +1,15 @@
-import React from 'react'
-
-import './App.css';
-import holandAuction from './components/holandAuction';
+import logo from "./logo.svg";
+import "./App.css";
+import React, { useEffect } from "react";
+import HolandAuction from "./components/holandAuction";
+import EnglishAuction from "./components/englishAuction";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header"></header>
-      <holandAuction/>
+      <h1>hola mundo</h1>
+      <HolandAuction />
+      {/* <EnglishAuction /> */}
     </div>
   );
 }
