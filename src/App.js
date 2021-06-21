@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 
 import './App.css';
-import { getAuction } from './utils/holandAuction/holandAuction';
+import { getAuction } from './utils/holandAuction';
 
 function App() {
   useEffect(() => {
