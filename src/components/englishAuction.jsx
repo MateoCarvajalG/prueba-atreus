@@ -13,15 +13,15 @@ const EnglishAuction = () => {
   useEffect(() => {
     getAuctions(auction_id)
     .then((data) => {
-      setData(data.data);
-      console.log(data.data);
+      setData(data.data.data);
+      console.log(data.data.data);
     })
     
   }, [])
   return (
     <div>
-            <h2>este es holand auction</h2>
-{data}
+            <h2>este es english auction</h2>
+            {data.auctionID}
     </div>
   )
 }
