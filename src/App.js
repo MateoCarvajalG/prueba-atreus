@@ -1,21 +1,13 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 
 import './App.css';
-import { getAuction } from './utils/holandAuction';
+import holandAuction from './components/holandAuction';
 
 function App() {
-  useEffect(() => {
-    getAuction()
-    .then((data) => {
-      console.log(data);
-    })
-    
-  }, [])
   return (
     <div className="App">
-      <header className="App-header">
-        
-      </header>
+      <header className="App-header"></header>
+      <holandAuction/>
     </div>
   );
 }
