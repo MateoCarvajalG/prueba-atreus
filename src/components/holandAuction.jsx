@@ -19,7 +19,9 @@ const HolandAuction = () => {
           "quantity": 5
         }
       ],
-      "tenderPeriod": {}
+      "tenderPeriod": {
+        "endDate": "2021-06-29T20:01:54+03:00"
+      }
     }
   }
   useEffect(() => {

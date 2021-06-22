@@ -1,21 +1,22 @@
 import axios from "axios";
 
-const KEY = "ba417ff3a1a446de9b7207b0e8f1ceaf";
+const token = "ba417ff3a1a446de9b7207b0e8f1ceaf";
+
+// const config = {
+  // headers: { Authorization: `Bearer ${token}` }
+// };
 
 // https://api.atreus.auction/api/2.4/auctions/5cc18be54d4d412bb9e0209b9d6aa4f0?acc_token=ba417ff3a1a446de9b7207b0e8f1ceaf
 
-const instanceGet = axios.create({
-  baseURL: "https://api.atreus.auction/api/2.4/auctions/",
-});
-const instancePost = axios.create({
-  baseURL: "https://api.atreus.auction/api/2.4/auctions/",
+const instance = axios.create({
+  baseURL: "https://api.atreus.auction/api/2.4/auctions",
 });
 
 
 export const getAuctions = async (auction_id) => {
   try {
     
-    const data = await instanceGet.get(`${auction_id}?acc_token=${KEY}`);
+    const data = await instance.get(`/${auction_id}?acc_token=${token}`);
     return data;
   } catch (error) {
     console.log('Error getting auction');
@@ -23,13 +24,17 @@ export const getAuctions = async (auction_id) => {
 };
 
 export const addAuction = async (request,auction_id)=> {
+  console.log(request);
   
-  try {
-     const data = await instancePost.post(
-      `${auction_id}?acc_token=${KEY}`, request
-     );
-     return data;
-  } catch (error) {
-     console.log('Error adding auction: ', error);
+  axios.post("https://api.atreus.auction/api/2.4/auctions", {
+  headers: {
+    'Authorization': `token ${token}`
   }
+}, request)
+.then((res) => {
+  console.log(res.data)
+})
+.catch((error) => {
+  console.error(error)
+})
 }
